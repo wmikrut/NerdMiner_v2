@@ -151,7 +151,7 @@ void init_WifiManager()
   }
   WiFiManagerParameter save_stats_to_nvs("SaveStatsToNVS", "Track Uptime, Best Diff, Total Hashes in device Flash memory. (Experimental)", "T", 2, checkboxParams, WFM_LABEL_AFTER);
   // Text box (String) - 80 characters maximum
-  WiFiManagerParameter password_text_box("Poolpassword - Optionl", "Pool password", Settings.PoolPassword, 80);
+  WiFiManagerParameter password_text_box("Poolpassword", "Pool password (Optional)", Settings.PoolPassword, 80);
 
   // Add all defined parameters
   wm.addParameter(&pool_text_box);
