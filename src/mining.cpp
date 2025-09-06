@@ -13,6 +13,7 @@
 #include "timeconst.h"
 #include "drivers/displays/display.h"
 #include "drivers/storage/storage.h"
+#include "ledBlink.h"
 
 nvs_handle_t stat_handle;
 
@@ -316,6 +317,7 @@ void runMiner(void * task_id) {
         Serial.print("   - Current diff share: "); Serial.println(diff_hash,12);
         Serial.print("   - Current pool diff : "); Serial.println(mMiner.poolDifficulty,12);
         Serial.print("   - TX SHARE: ");
+        led_blink_trigger(100);
         for (size_t i = 0; i < 32; i++)
             Serial.printf("%02x", hash[i]);
         #ifdef DEBUG_MINING

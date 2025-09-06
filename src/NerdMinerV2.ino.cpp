@@ -14,6 +14,7 @@
 #include "drivers/displays/display.h"
 #include "drivers/storage/SDCard.h"
 #include "timeconst.h"
+#include "ledBlink.h"
 
 #ifdef TOUCH_ENABLE
 #include "TouchHandler.h"
@@ -97,6 +98,7 @@ void setup()
 
   /******** INIT NERDMINER ************/
   Serial.println("NerdMiner v2 starting......");
+  led_blink_setup();
 
   /******** INIT DISPLAY ************/
   initDisplay();
@@ -179,4 +181,5 @@ void loop() {
   wifiManagerProcess(); // avoid delays() in loop when non-blocking and other long running code
 
   vTaskDelay(50 / portTICK_PERIOD_MS);
+  led_blink_service();
 }
